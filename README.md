@@ -21,3 +21,59 @@ web-vitals: 2.1.2
 ### nginx
 nginx latest
 
+
+
+## configuration
+### backend-Dockerfile
+```
+FROM node:15.11.0-alpine
+MAINTAINER KIMDONGJANG
+
+RUN mkdir /app
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json /app/package.json
+
+RUN npm install --no-cache
+#RUN apk add --no-cache git
+
+COPY . /app
+CMD ["npm", "run", "server"]
+```
+
+
+### docker-compose.yml
+```
+version: '3.3'
+
+services:
+  nginx_proxy:
+    image: nginx:latest
+    container_name: nginx_proxy
+    restart: "on-failure"
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./frontend/build:/usr/share/nginx/html
+
+  server:
+    build:
+      context: ./backend/
+    container_name: server
+    restart: "on-failure"
+    expose:
+      - 8080
+    volumes:
+      - './backend:/app'
+      - '/app/node_modules'
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
+    tty: true
+```
+
+### package.json
+내부 소스 참고
+
