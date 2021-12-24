@@ -1,0 +1,25 @@
+{
+  "name": "docker_nginx_express_react_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd ./packages/client && npm run start",
+    "server": "cd ./packages/server && npm run server",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimdongjang/docker-nginx-express-react-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kimdongjang/docker-nginx-express-react-test/issues"
+  },
+  "homepage": "https://github.com/kimdongjang/docker-nginx-express-react-test#readme",
+}
