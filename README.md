@@ -1,5 +1,6 @@
 # docker_nginx_express_react_test
 도커에 nginx와 express 컨테이너를 docker-compose로 각각 생성해서 관리하는 프로그램입니다.
+
 express 위에는 react app이 기동됩니다.
 
 ## dependency
