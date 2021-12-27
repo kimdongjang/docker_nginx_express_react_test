@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "cd ./packages/client && npm run start",
-    "server": "cd ./packages/server && npm run server",
+    "client": "cd ./client && npm run start",
+    "server": "cd ./server && npm run server",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
@@ -21,5 +21,5 @@
   "bugs": {
     "url": "https://github.com/kimdongjang/docker-nginx-express-react-test/issues"
   },
-  "homepage": "https://github.com/kimdongjang/docker-nginx-express-react-test#readme",
+  "homepage": "https://github.com/kimdongjang/docker-nginx-express-react-test#readme"
 }
